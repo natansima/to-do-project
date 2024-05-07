@@ -1,0 +1,36 @@
+/* About.css */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .profile-container {
+    margin: 30px;
+    text-align: center;
+    margin-bottom: 10px; /* Adiciona uma margem inferior maior */
+  }
+  
+  .profile {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Faz a borda circular */
+  }
+  
+  .link-container {
+    margin-top: 10px;
+  }
+  
+  .about-paragraph {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
