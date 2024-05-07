@@ -10,6 +10,7 @@ import Sidebar from './Components/Sidebar';
 import AddTask from "./AddTask";
 import Datatasks from "./data/Datatasks.json";
 import SingleTask from "./SingleTask";
+import UpdateTask from "./UpdateTask";
 
 
 
@@ -47,6 +48,12 @@ function App() {
         <Route
           path="/tasks/:taskId"
           element={<SingleTask tasks={tasks} />}
+          />
+          <Route
+            path="/tasks/:taskId/edit"
+            element={
+              <UpdateTask tasks={tasks} setTasks={setTask} />
+            }
         />
       <Route path="/" element={<Sidebar />}>
       <Route path="/" element={<HomePage />}/>

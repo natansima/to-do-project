@@ -13,20 +13,23 @@ export default function SingleTask({ tasks }) {
     return <Navigate to="/tasks" />;
   }
 
- 
+  const showWhat = searchParams.get("showWhat");
   const showWhere = searchParams.get("showWhere");
 
+
+  console.log("showWhat", showWhat);
+  console.log("showWhere", showWhere);
  
 
 
   return (
     <div className="profile-wrapper">
-      <div className="profile card">
+      <div className="profile-card">
        
     
         <h2>{task.what}</h2>
-        
-        {showWhere === "true" && <p>{what.where}</p>}
+        {showWhat === "true" && <p>{task.what}</p>}
+        {showWhere === "true" && <p>{task.where}</p>}
       </div>
     </div>
   );
