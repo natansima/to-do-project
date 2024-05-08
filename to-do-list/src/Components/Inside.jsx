@@ -37,31 +37,31 @@ export default function Inside() {
     <div className="DENTRO">
       <div className="wrapper">
         <div>
-          <div className="form-wrapper">
+          {/* <div className="form-wrapper">
             <input type="text" value={task} onChange={handleChange} />
             <button onClick={addItem}>Add</button>
-          </div>
+          </div> */}
         </div>
 
         <ul>
           {items.map((item) => {
             return (
-
-              <li id="card"
-              key={item.id} className={item.completed ? "completed" : ""}>
+              <li
+                id="card"
+                key={item.id}
+                className={item.completed ? "completed" : ""}
+              >
                 <input
                   type="checkbox"
                   checked={item.completed}
-                
                   onChange={() => toggleTaskCompletion(item.id)}
                 />
-                
 
-                {item.task || (item.what)}
-                
+                {item.what}
+
                 <div>
-                <ButtonDel task={item} deleteItem={deleteItem} />
-              </div>
+                  <ButtonDel task={item} deleteItem={deleteItem} />
+                </div>
               </li>
             );
           })}

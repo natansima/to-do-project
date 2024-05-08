@@ -55,11 +55,13 @@ function App() {
               <UpdateTask tasks={tasks} setTasks={setTask} />
             }
         />
+         <Route path="*" element={<ErrorPage />} />
       <Route path="/" element={<Sidebar />}>
+      
       <Route path="/" element={<HomePage />}/>
         <Route path="/about" element={<About />} />
         <Route path="/tasks" element={<Task />} />
-        <Route path="*" element={<ErrorPage />} />
+       
         
         </Route>
       </Routes>
