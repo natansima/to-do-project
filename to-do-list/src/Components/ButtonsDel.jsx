@@ -12,7 +12,7 @@ export default function ButtonDel({ task, deleteItem }) {
   <Link className="button-del" to={`/tasks/${task.id}/edit`}>
   ✍️
   </Link>
-  <button itemID="button-background" onClick={() => deleteItem(task.id)}>🗑️</button>
+  <button onClick={() => deleteItem(task.id)}>🗑️</button>
 </div>
 
 </li>

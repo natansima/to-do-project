@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HeaderFooter from "./Components/HeaderFooter";
 import "./AddTask.css";
-import Datatasks from "./data/Datatasks.json";
 
 export default function AddTask({ addTask }) {
   const [task, setTask] = useState("");
