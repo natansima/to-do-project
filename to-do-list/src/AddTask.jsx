@@ -33,16 +33,15 @@ export default function AddTask() {
       return;
     }
 
-    // generate id, if no image default image is used & add student to the list
     const id = uuidv4();
-    /* const task = { id, what, where, completed }; */
-    setTask([...task, { id, what, where, completed }])
+    const task = { id, what, where, completed };
+    setTask(task)
 
     // clear form
     setWhat("");
     setWhere("");
 
-    // redirect to students list
+    // redirect to tasks list
     navigate("/tasks");
   };
 
