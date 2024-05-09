@@ -3,12 +3,12 @@ import Inside from "../Components/Inside";
 
 
 
-export default function Task() {
+export default function Task({tasks}) {
     return (
       
             <div>
             
-                <Inside />
+                <Inside  tasks={tasks} />
                 <HeaderFooter />
             </div>
             

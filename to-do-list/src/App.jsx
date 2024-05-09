@@ -1,4 +1,3 @@
-// App.jsx
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -13,54 +12,31 @@ import SingleTask from "./SingleTask";
 import UpdateTask from "./UpdateTask";
 
 
-
 function App() {
+  const [tasks, setTasks] = useState(Datatasks);
   
-  const [tasks, setTask] = useState(Datatasks);
-    
+ 
   const createTask = (task) => {
-    setTask([...tasks, task]);
+    setTasks([...tasks, task]);
   };
+
+  
 
   const deleteItem = (id) => {
-    setTask(tasks.filter((task) => task.id !== id));
-  };
-  
-  
-  
-  
-  
-  
+    setTasks(tasks.filter((task) => task.id !== id));
+  };    
+            
   return (
-
-
-
-   
-    
-
     <>
-
       <Routes>
-      <Route
-          path="/tasks/new"
-          element={<AddTask createTask={createTask} />}
-        />
-        <Route
-          path="/tasks/:taskId"
-          element={<SingleTask tasks={tasks} />}
-          />
-          <Route
-            path="/tasks/:taskId/edit"
-            element={
-              <UpdateTask tasks={tasks} setTasks={setTask} />
-            }
-        />
-      <Route path="/" element={<Sidebar />}>
-      <Route path="/" element={<HomePage />}/>
-        <Route path="/about" element={<About />} />
-        <Route path="/tasks" element={<Task />} />
+        <Route path="/tasks/new" element={<AddTask addTask={createTask} />} />
+        <Route path="/tasks/:taskId" element={<SingleTask tasks={tasks} />} />
+        <Route path="/tasks/:taskId/edit" element={<UpdateTask tasks={tasks} setTasks={setTasks} />} />
         <Route path="*" element={<ErrorPage />} />
-        
+        <Route path="/" element={<Sidebar />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/tasks" element={<Task tasks={tasks} deleteItem={deleteItem} />} />
         </Route>
       </Routes>
     </>
@@ -68,3 +44,4 @@ function App() {
 }
 
 export default App;
+

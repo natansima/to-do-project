@@ -6,11 +6,10 @@ import HeaderFooter from "./Components/HeaderFooter";
 import "./AddTask.css";
 import Datatasks from "./data/Datatasks.json"
 
-export default function AddTask() {
+export default function AddTask({addTask}) {
   const [what, setWhat] = useState("");
   const [where, setWhere] = useState("");
-  const [completed, setCompleted] = useState(false)
-  const [task, setTask] = useState(Datatasks)
+
   const navigate = useNavigate();
 
   const handleWhatChange = (e) => {
@@ -33,15 +32,16 @@ export default function AddTask() {
       return;
     }
 
+    // generate id, if no image default image is used & add student to the list
     const id = uuidv4();
-    const task = { id, what, where, completed };
-    setTask(task)
+    const task = { id, what, where, completed: false };
+    addTask(task)
 
     // clear form
     setWhat("");
-    setWhere("");
+   
 
-    // redirect to tasks list
+    // redirect to students list
     navigate("/tasks");
   };
 

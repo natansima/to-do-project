@@ -2,24 +2,10 @@ import { useState } from "react";
 import "./Inside.css";
 import ButtonDel from "./ButtonsDel";
 
-import Datatasks from "../data/Datatasks";
 
-export default function Inside() {
+export default function Inside({tasks}) {
   // useState for the task items
-  const [items, setItems] = useState(Datatasks);
-  const [task, setTask] = useState("");
-
-  const handleChange = (e) => {
-    setTask(e.target.value);
-  };
-
-  const addItem = () => {
-    if (task === "") return;
-
-    const id = items.length + 1;
-    setItems([...items, { id, task, completed: false }]);
-    setTask("");
-  };
+  
 
   const toggleTaskCompletion = (id) => {
     setItems(
@@ -36,14 +22,13 @@ export default function Inside() {
   return (
     <div className="DENTRO">
       <div className="wrapper">
-        <div>
-          {/* <div className="form-wrapper">
-            <input type="text" value={task} onChange={handleChange} />
-            <button onClick={addItem}>Add</button>
-          </div> */}
+        
+          <div className="form-wrapper">
+      
         </div>
+
         <ul>
-          {items.map((item) => {
+          {tasks.map((item) => {
             return (
 
               <li id="card"
