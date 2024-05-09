@@ -7,36 +7,31 @@ export default function AddTask({ tasks, setTasks }) {
   const { taskId } = useParams();
 
   // find task using .find()
-  const task = tasks.find((task) => task.id === taskId);
+  const foundTask = tasks.find((task) => task.id === taskId);
   // if task is not found, redirect to tasks list
-  if (!task) return <Navigate to="/tasks" />;
+  if (!foundTask) return <Navigate to="/tasks" />;
 
-  const [what, setWhat] = useState("");
-  const [where, setWhere] = useState("");
+  const [taskState, setTaskState] = useState(foundTask.task);
   const navigate = useNavigate();
 
-  const handleWhatChange = (e) => {
-    setWhat(e.target.value);
-  };
-
-  const handleWhereChange = (e) => {
-    setWhere(e.target.value);
+  const handleTaskStateChange = (e) => {
+    setTaskState(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Check if all fields are filled
-    if (!what || !where) {
-      alert("Please fill in all fields");
+    if (!taskState) {
+      alert("Please add some content to the task");
       return;
     }
 
-    const updatedTask = { id: taskId, what, where };
+    const updatedTask = { ...foundTask, task: taskState };
 
     // Update task in the list
-    const updatedTasks = tasks.map((t) =>
-      t.id === taskId ? updatedTask : t
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? updatedTask : task
     );
 
     setTasks(updatedTasks);
@@ -51,29 +46,15 @@ export default function AddTask({ tasks, setTasks }) {
       <h1>Edit Task</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <label>What:</label>
+          <label>Task:</label>
           <input
             type="text"
-            name="what"
-            value={what}
-            onChange={handleWhatChange}
+            name="task"
+            value={taskState}
+            onChange={handleTaskStateChange}
           />
         </div>
-        <div className="input-wrapper">
-          <label>Where:</label>
-          <div className="select-wrapper">
-            <select
-              name="where"
-              value={where}
-              onChange={handleWhereChange}
-            >
-              <option value="">Select where</option>
-              <option value="Home">Home</option>
-              <option value="School">School</option>
-              <option value="Work">Work</option>
-            </select>
-          </div>
-        </div>
+       
         <button type="submit">Save</button>
       </form>
       <HeaderFooter />

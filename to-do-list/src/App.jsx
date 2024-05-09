@@ -17,9 +17,17 @@ function App() {
   
  
   const createTask = (task) => {
+    console.log(task)
     setTasks([...tasks, task]);
   };
 
+  const toggleTaskCompletion = (id) => {
+    setTasks(
+      tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
   
 
   const deleteItem = (id) => {
@@ -36,7 +44,7 @@ function App() {
         <Route path="/" element={<Sidebar />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/tasks" element={<Task tasks={tasks} deleteItem={deleteItem} />} />
+          <Route path="/tasks" element={<Task tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteItem={deleteItem} />} />
         </Route>
       </Routes>
     </>

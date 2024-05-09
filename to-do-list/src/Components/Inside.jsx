@@ -2,54 +2,33 @@ import { useState } from "react";
 import "./Inside.css";
 import ButtonDel from "./ButtonsDel";
 
-
-export default function Inside({tasks}) {
-  // useState for the task items
-  
-
-  const toggleTaskCompletion = (id) => {
-    setItems(
-      items.map((item) =>
-        item.id === id ? { ...item, completed: !item.completed } : item
-      )
-    );
-  };
-
-  const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
-  };
-
+export default function Inside({ tasks, toggleTaskCompletion, deleteItem }) {
   return (
     <div className="DENTRO">
       <div className="wrapper">
-        
-          <div className="form-wrapper">
-      
-        </div>
+        <div className="form-wrapper"></div>
 
-        <ul>
+        <div className="tasks-list-wrapper">
           {tasks.map((item) => {
             return (
-
-              <li id="card"
-              key={item.id} className={item.completed ? "completed" : ""}>
+              <div
+                id="card"
+                key={item.id}
+                className={item.completed ? "completed" : ""}
+              >
                 <input
                   type="checkbox"
                   checked={item.completed}
-                
                   onChange={() => toggleTaskCompletion(item.id)}
                 />
-                
-
-                {item.task || (item.what)}
-                
+                {item.task || item.id} 
                 <div>
-                <ButtonDel task={item} deleteItem={deleteItem} />
+                  <ButtonDel task={item} deleteItem={deleteItem} />
+                </div>
               </div>
-              </li>
             );
           })}
-        </ul>
+        </div>
       </div>
     </div>
   );

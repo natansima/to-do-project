@@ -4,82 +4,52 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HeaderFooter from "./Components/HeaderFooter";
 import "./AddTask.css";
-import Datatasks from "./data/Datatasks.json"
+import Datatasks from "./data/Datatasks.json";
 
-export default function AddTask({addTask}) {
-  const [what, setWhat] = useState("");
-  const [where, setWhere] = useState("");
-
+export default function AddTask({ addTask }) {
+  const [task, setTask] = useState("");
   const navigate = useNavigate();
 
-  const handleWhatChange = (e) => {
-    setWhat(e.target.value);
-  };
-
-
-
-
-  const handleWhereChange = (e) => {
-    setWhere(e.target.value);
+  const handleTaskChange = (e) => {
+    setTask(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Check if all fields are filled
-    if (!what|| !where) {
+    if (!task) {
       alert("Please fill in all fields");
       return;
     }
 
     // generate id, if no image default image is used & add student to the list
     const id = uuidv4();
-    const task = { id, what, where, completed: false };
-    addTask(task)
+    const newTask = { id, task, completed: false }; // Renamed variable to newTask
+    addTask(newTask); // Fixed variable name to match
 
     // clear form
-    setWhat("");
-   
+    setTask("");
 
-    // redirect to students list
+    // redirect to tasks list
     navigate("/tasks");
   };
 
   return (
-
     <div>
-     
       <Navbar />
       <h1>Add Task</h1>
-      <form>
+      <form onSubmit={handleSubmit}> {/* Moved handleSubmit to onSubmit event of form */}
         <div className="input-wrapper">
-          <label>What:</label>
+          <label>Task:</label>
           <input
             type="text"
-            name="what"
-            value={what}
-            onChange={handleWhatChange}
+            name="task"
+            value={task}
+            onChange={handleTaskChange}
           />
         </div>
-       
-        <div className="input-wrapper">
-          <label>Where:</label>
-          <div className="select-wrapper">
-            <select
-              name="where"
-              value={where}
-              onChange={handleWhereChange}
-            >
-              <option value="">Select Where</option>
-              <option value="Home">Home</option>
-              <option value="School">School</option>
-              <option value="Work">Work</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit" onClick={handleSubmit}>
-          Save
-        </button>
+        <button type="submit">Save</button> {/* Removed onClick and used type="submit" */}
       </form>
       <HeaderFooter />
     </div>
