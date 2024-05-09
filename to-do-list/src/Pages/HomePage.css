@@ -4,4 +4,15 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
+}
+
+p {
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  font-style: italic;
+}
+
+a {
+  font-family: "Georgia", serif;
+  text-align: right;
+}
