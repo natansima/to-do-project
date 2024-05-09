@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 const Sidebar = () => (
   <div className="wrapp">
    
-      <Navbar />
       <Outlet />
    
   </div>
