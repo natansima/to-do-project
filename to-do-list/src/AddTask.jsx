@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Components/Navbar";
 import HeaderFooter from "./Components/HeaderFooter";
 import "./AddTask.css";
 
@@ -36,7 +35,6 @@ export default function AddTask({ addTask }) {
 
   return (
     <div>
-      <Navbar />
       <h1>Add Task</h1>
       <form onSubmit={handleSubmit}> {/* Moved handleSubmit to onSubmit event of form */}
         <div className="input-wrapper">
