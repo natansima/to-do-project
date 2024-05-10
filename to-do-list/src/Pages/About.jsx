@@ -14,13 +14,12 @@ export default function About() {
         <div className="profile-container">
           <img src={profile1} alt="Profile Lafaiete" className="profile" />
           <div className="link-container">
-          <p style={{ fontSize: '20px', fontWeight: 'bold' }}>Lafaiete Santos</p>
-
+            <p style={{ fontSize: '20px', fontWeight: 'bold' }}>Lafaiete Santos</p>
             <div className="icon-container">
               <a href="https://github.com/lafaietes/" target="_blank">
-                <img src={giticon} className='icon'/>
-
-                
+              <button className="button-with-icon">
+        <img src={giticon} className='icongit' />
+      </button>
               </a>
               <a href="https://www.linkedin.com/in/lafaiete-santos-3885b7242/" target="_blank">
                 <img src={linkedin} className='icon'/>
@@ -34,7 +33,9 @@ export default function About() {
             <p style={{ fontSize: '20px', fontWeight: 'bold' }}>Natan Simões</p>
             <div className="icon-container">
               <a href="https://github.com/natansima/" target="_blank">
-                <img src={giticon} className='icon'/>
+              <button className="button-with-icon">
+            <img src={giticon} className='icongit' />
+            </button>
               </a>
               <a href="https://www.linkedin.com/in/natan-simoes12/" target="_blank">
                 <img src={linkedin} className='icon'/>
@@ -47,6 +48,7 @@ export default function About() {
       <p className='about-paragraph'>
         Welcome to the To-Do App! We are passionate about productivity and organization.<br></br>Our goal is to simplify your life by providing an intuitive platform to manage your daily tasks.<br></br>With a user-friendly interface and powerful features, we are here to help you achieve your goals efficiently.<br></br>Join us on this journey to a more productive and balanced life!
       </p>
+   
       <HeaderFooter />
     </div>
   );

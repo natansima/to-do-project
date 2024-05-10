@@ -23,6 +23,24 @@
     width: 30px;
     height: 30px;
   }
+
+  .button-with-icon {
+    border-radius: 70%;
+    background-color: #1a1a1a;
+    border: none; 
+    padding: 0; 
+    margin: 0; 
+    display: block;
+    margin-top: -9px; 
+  }
+  
+  .button-with-icon img {
+    border-radius: 70%;
+    width: 30px;
+    margin: 0; 
+    padding: 0; 
+    display: block;
+  }
   .icon-container {
     display: flex;
     justify-content: center;

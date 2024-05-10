@@ -11,7 +11,7 @@ import Datatasks from "./data/Datatasks.json";
 import SingleTask from "./SingleTask";
 import UpdateTask from "./UpdateTask";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
+
 
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
-      <Footer/>
+     
     </>
   );
 }
