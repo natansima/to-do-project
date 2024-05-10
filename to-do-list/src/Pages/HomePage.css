@@ -6,12 +6,16 @@
     min-height: 100vh;
 }
 
-p {
+.p-home-page {
   font-family: "Georgia", serif;
   font-size: 20px;
   font-style: italic;
+  margin-bottom: 0.2em;
 }
 
 .a-home {
   font-family: "Georgia", serif;
+  text-align: right;
+  margin-top: 0.2em;
+  
 }

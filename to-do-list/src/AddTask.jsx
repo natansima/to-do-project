@@ -38,8 +38,7 @@ export default function AddTask({ addTask }) {
       <h1>Add Task</h1>
       <form onSubmit={handleSubmit}> {/* Moved handleSubmit to onSubmit event of form */}
         <div className="input-wrapper">
-          <label>Task:</label>
-          <input
+          <input placeholder="Type your text here"
             type="text"
             name="task"
             value={task}

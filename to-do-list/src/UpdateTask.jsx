@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
-import Navbar from "./Components/Navbar";
 import HeaderFooter from "./Components/HeaderFooter";
 
 export default function AddTask({ tasks, setTasks }) {
@@ -42,7 +41,6 @@ export default function AddTask({ tasks, setTasks }) {
 
   return (
     <div>
-        <Navbar />
       <h1>Edit Task</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">

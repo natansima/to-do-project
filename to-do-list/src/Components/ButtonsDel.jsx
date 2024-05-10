@@ -8,9 +8,9 @@ export default function ButtonDel({ task, deleteItem }) {
   <Link to={`/tasks/${task.id}?showWhat=true&showWhere=true`}>
   {task.what}
   </Link>
-<div style={{ display: "flex", alignItems: "center" }}>
-  <Link className="button-del" to={`/tasks/${task.id}/edit`}>
-  ✍️
+  <div style={{ display: "flex", alignItems: "center" }}>
+  <Link to={`/tasks/${task.id}/edit`}>
+    <button>✍️</button>
   </Link>
   <button onClick={() => deleteItem(task.id)}>🗑️</button>
 </div>
@@ -19,5 +19,3 @@ export default function ButtonDel({ task, deleteItem }) {
 </div>
 );
 }
-
-
